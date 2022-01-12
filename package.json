@@ -1,0 +1,23 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "typescript course",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Galand33rus/TypeScript.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "Galand",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Galand33rus/TypeScript/issues"
+  },
+  "homepage": "https://github.com/Galand33rus/TypeScript#readme"
+}
