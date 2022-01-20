@@ -18,6 +18,23 @@ export interface Amount {
   amount: number
 }
 
+const isUser = (object: unknown): object is User => {
+  return (
+    typeof (object as User).username === 'string' &&
+    typeof (object as User).avatarUrl === 'string'
+  )
+}
+
+export function getUserData(key: string): User | undefined {
+  const item = localStorage.getItem(key)
+  let userData: unknown
+  if (item) {
+    userData = JSON.parse(item)
+  }
+  if (isUser(userData)) return userData
+  return undefined
+}
+
 export function getFavoritesAmount(key: string): Amount {
   const item = localStorage.getItem(key)
   let favoritesAmount: unknown
@@ -27,22 +44,6 @@ export function getFavoritesAmount(key: string): Amount {
 
   if (typeof favoritesAmount === 'object' && 'amount' in favoritesAmount) {
     return favoritesAmount as Amount
-  }
-  throw new Error('Всё пропало! Звоните админу!');
-}
-
-export function getUserData(key: string): User {
-  const item = localStorage.getItem(key)
-  let userData: unknown
-  if (item) {
-    userData = JSON.parse(item)
-  }
-
-  if (typeof userData === 'object' &&
-    'username' in userData &&
-    'avatarUrl' in userData
-  ) {
-    return userData as User
   }
   throw new Error('Всё пропало! Звоните админу!');
 }
