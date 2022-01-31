@@ -1,7 +1,11 @@
 .idea
+null
 
 # dependencies
 /node_modules
+
+# dev
+public/scripts
 
 # testing
 /coverage
